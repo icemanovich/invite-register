@@ -19,12 +19,6 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 NAME = os.environ.get('NAME', 'invite-register')
 
-DB_NAME = os.environ.get('DB_NAME', 'invite-register')
-DB_HOST = os.environ.get('DB_HOST', 'localhost')
-DB_PORT = int(os.environ.get('DB_PORT', 27017))
-DB_USERNAME = os.environ.get('DB_USERNAME', None)
-DB_PASSWORD = os.environ.get('DB_PASSWORD', None)
-
 THREADED = os.environ.get('THREADED', False)
 
 APP_HOST = os.environ.get('APP_HOST', '0.0.0.0')
