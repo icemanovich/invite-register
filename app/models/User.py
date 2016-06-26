@@ -15,4 +15,5 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.Unicode(50), nullable=False, server_default=u'')
     last_name = db.Column(db.Unicode(50), nullable=False, server_default=u'')
 
+    invite = db.Column(db.Unicode(36), unique=True)
 

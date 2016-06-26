@@ -37,6 +37,7 @@ class ConfigBase(object):
     BCRYPT_LEVEL = int(os.environ.get('BCRYPT_LEVEL', 12))
 
     MAIL_FROM_EMAIL = os.environ.get('MAIL_FROM_EMAIL', "info@example.com")
+    MAIL_DEBUG = os.environ.get('MAIL_DEBUG', 1)
     SECRET_KEY = os.environ.get('SECRET_KEY')
 
     NAME = os.environ.get('NAME', 'invite_register')

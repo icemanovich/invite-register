@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 from config import load_config
+from app.modules.ConsoleMail import ConsoleMail
 import wtforms_json
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CsrfProtect
@@ -18,8 +19,8 @@ app.name = app.config['NAME']
 
 ''' db - connected Database instance '''
 db = SQLAlchemy(app)
-
-# app.register_blueprint(auth)
+mail = ConsoleMail()
+mail.init_app(app)
 
 wtforms_json.init()
 CsrfProtect(app)
