@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from config import load_config
 import wtforms_json
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CsrfProtect
 
 __title__ = 'Invite Register Example'
