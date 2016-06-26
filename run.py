@@ -1,7 +1,11 @@
 import sys
 from app import app
 import logging
+from werkzeug.contrib.fixers import ProxyFix
 
+
+
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 if __name__ == '__main__':
     host = app.config['APP_HOST']
@@ -14,4 +18,5 @@ if __name__ == '__main__':
     logging.basicConfig(filename='logs/error.log', level=logging.WARNING,
                         format='[%(asctime)s][%(levelname)s][%(pathname)s:%(lineno)d]# %(message)s')
 
-    app.run(host=host, port=port, debug=app.config['DEBUG'], threaded=app.config['THREADED'])
+    # app.run(host=host, port=port, debug=app.config['DEBUG'], threaded=app.config['THREADED'])
+    app.run()

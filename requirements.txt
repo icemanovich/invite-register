@@ -11,6 +11,7 @@ Flask-Mail==0.9.1
 Flask-SQLAlchemy==2.1
 Flask-User==0.6.8
 Flask-WTF==0.12
+sqlalchemy-migrate
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
