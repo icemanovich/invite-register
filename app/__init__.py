@@ -4,6 +4,7 @@ from config import load_config
 from app.modules.ConsoleMail import ConsoleMail
 import wtforms_json
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 from flask_wtf.csrf import CsrfProtect
 
 __title__ = 'Invite Register Example'
@@ -21,6 +22,12 @@ app.name = app.config['NAME']
 db = SQLAlchemy(app)
 mail = ConsoleMail()
 mail.init_app(app)
+
+
+''' Manage login and sessions '''
+login_manager = LoginManager()
+login_manager.login_view = 'login'
+login_manager.init_app(app)
 
 wtforms_json.init()
 CsrfProtect(app)

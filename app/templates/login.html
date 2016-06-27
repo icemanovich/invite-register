@@ -1,35 +1,35 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1>LOGIN</h1>
-
-
-<form class="form" method="POST" action="/{{ url }}">
-
-            <h2 class="form-signin-heading">Please sign in</h2>
-
+<div class="panel panel-default" >
+    <div class="panel-heading">
+        <div class="row">
+            <div class="h4 col-xs-6">
+                <i class="fa"></i>Login in
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form class="form" method="POST" action="/login">
             {% if form.errors %}
                 <div class="alert alert-danger" role="alert">
                     {% for error, reasons in form.errors.iteritems() %}
-                        {# do not show csrf error because common user would not edit it #}
-                        {% if error != 'csrf_token' %}
-                            <strong>{{ error }}</strong>
-                            {% for reason in reasons %}
-                                <p>{{ reason }}</p>
-                            {% endfor %}
-                        {% endif %}
+                        <strong>{{ error }}</strong>
+                        {% for reason in reasons %}
+                            <p>{{ reason }}</p>
+                        {% endfor %}
                     {% endfor %}
                 </div>
             {% endif %}
 
-            {{ form.csrf_token() }}
             <label for="inputEmail" class="sr-only">Email address</label>
             <input name="login" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
             <label for="inputPassword" class="sr-only">Password</label>
             <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-
-</form>
+            {{ form.csrf_token() }}
+        </form>
+    </div>
+</div>
 
 {% endblock %}
-
