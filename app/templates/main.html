@@ -5,16 +5,15 @@
     <div class="panel-heading">
         <div class="row">
             <div class="h4 col-xs-6">
-                <i class="fa"></i> %Username%
+                <i class="fa"></i> Hello, <i>{{user.email}}!</i>
             </div>
         </div>
     </div>
     <div class="panel-body">
         <div>
-            {% if not user %}
-                SHOW USER DATA
-            {% else %}
-                No user data found
+            <p><b>Short user info:</b> {{ user }}</p>
+            {% if user.is_admin: %}
+                <p><b>User has administrative privileges</b></p>
             {% endif %}
         </div>
     </div>
