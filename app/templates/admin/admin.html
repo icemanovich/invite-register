@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="panel panel-default" >
+    <div class="panel-heading">
+        <div class="row">
+            <div class="h4 col-xs-6">
+                <i class="fa"></i>Send invite to new user
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form class="form" method="POST" action="/invite">
+            {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for error, text in form.errors.items() %}
+                        <strong>{{ error }}</strong>
+                        <p>{{'</p><p>'.join(text)}}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if messages %}
+                <div class="alert alert-success" role="alert">
+                    {% for msg, text in form.messages.items() %}
+                        <strong>{{ msg }}</strong>
+                        <p>{{'</p><p>'.join(text)}}</p>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
+            {{ form.csrf_token() }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
