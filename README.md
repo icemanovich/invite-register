@@ -38,7 +38,22 @@ cp .env_example .env
 nano .env
 ```
 
+3. Создать пользователей по-умолчанию (Админа)
+```
+Доступные аккаунты:
+admin@example.com / qwe
+master@example.com / qwe
 
+python manage.py create_default_users
 
+```
 
+4. Запустить приложение
+```
+python run.py
 
+либо
+
+./runserver.sh
+
+```
